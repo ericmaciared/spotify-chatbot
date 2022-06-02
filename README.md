@@ -29,97 +29,76 @@ The project has been built with some tools, frameworks and languages mentioned b
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
+These are the instructions on setting up the project locally.
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+To run the program locally it is important to have installed the tools mentioned earlier.
+
+* DialogFlow: To get access to the Chatbot, previous approval needs to have been done, for that contact the email on the Contact section to ask for developer permissions for the Chatbot configuration.
+Alternatively, you can create a new agent in DialogFlow and import the data with the json files provided in the intents/ and entities/ directories.
+
+* Python: We developed it in python 3.10.4, make sure to verify python version when using the project. 
+
+* MySQL: 
+```sh
+pip install mysql-connector-python
+```
+* Flask: 
+```sh
+pip install flask
+```
+* Ngrok: Installed from link provided above.
+
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+_Below is an example of how you can install and set up the project. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/ericmaciared/spotify-chatbot.git
    ```
-3. Install NPM packages
+2. Init MySQL and run the install .sql file to create the database.
    ```sh
-   npm install
+   db/spotifydb.sql
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+   Make sure that the path to the csv file containing the information is in the right folder.
+3. Run ngrok
+   ```sh
+   ngrok http 5000
    ```
+4. Start the spotifyChatbot.py program
+    ```sh
+    pyhton3 spotifyChatbot.py
+    ```
+5. Copy https address provided by ngrok to the fulfillment section in DialogFlow.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
+5. Access the chatbot through Telegram or any other configured interface.
+For telegram access this is the address:
+    ```sh
+    https://t.me/kbsspotifybot
+    ```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
+Type and talk with the chatbot through the interface, it can be asked small talk questions, and its main activity is to recommend songs, these can be asked through a set of parameters.
+* Genres (Rock, Rap, Country, …)
+* Popularity (Play number, popular, unknown, niche, …)
+* Valence (happy-sad)
+* Tempo (fast, slow)
+* Artists by name (Eminem, Shakira,  Queen, …)
+* Energy (energetic, weak, chill, …)
+* Danceability (very danceable, not danceable, …)
+* Duration of track (very long, short, by seconds, …)
+* Key (A, B, G, …)
+* Speechiness (very verbal, no voice, podcast, …)
+* Liveness (live music, studio, …)
 
 
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/ericmaciared/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/ericmaciared/spotify-chatbot](https://github.com/ericmaciared/spotify-chatbot)
